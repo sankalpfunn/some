@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yes or No 😏</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("https://imgur.com/a/brVT2dI") no-repeat center center/cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      color: white;
+      position: absolute;
+    }
+
+    #yes {
+      background: green;
+      left: 40px;
+      top: 80px;
+    }
+
+    #no {
+      background: red;
+      right: 40px;
+      top: 80px;
+      transition: 0.15s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- ✅ YES LINK (THIS ONE WORKS) -->
+    <a id="yes" href="https://imgur.com/a/u4yDX2o">YES</a>
+
+    <!-- ❌ NO LINK (THIS ONE RUNS AWAY) -->
+    <a id="no" href="#">NO</a>
+  </div>
+
+  <script>
+  const noBtn = document.getElementById("no");
+  const container = document.querySelector(".container");
+
+  noBtn.addEventListener("mouseenter", () => {
+    const maxX = container.clientWidth - noBtn.offsetWidth;
+    const maxY = container.clientHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  });
+  </script>
+
+</body>
+</html>
